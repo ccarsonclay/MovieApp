@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import './App.css';
 
-function App() 
+function App() {
   const [movies, setMovies] = useState([]);
 
   const addReview = async (title, rating, review) => {
@@ -27,12 +27,12 @@ function App()
     } catch (error) {
       console.error(error);
     }
-  }
-
+  };
+  
   return (
     <div className="app">
       <header>
-        <h1>Carbonboxd</h1>
+        <h1>MovieBox</h1>
       </header>
       <main>
         {/* Display movie list */}
@@ -48,5 +48,36 @@ function App()
             </div>
             ))}
           </div>
-          </main>
-        </section> 
+        </section>
+
+        {/* Review form */}
+        <section id="add-review-form">
+          <h2>Add a Review</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const { title, rating, review } = e.target;
+              addReview(title.value, Number(rating.value), review.value);
+              e.target.reset();
+            }}
+          >
+            <label htmlFor="movie-title">Movie Title:</label>
+            <input type="text" id="movie-title" required />
+
+            <label htmlFor="rating">Rating:</label>
+            <input type="number" id="rating" min="0" max="5" step="0.1" required />
+
+            <label htmlFor="review">Review:</label>
+            <textarea id="review" />
+            
+            <button type="submit">Submit Review</button>
+          </form>
+        </section>
+      </main>
+      <footer>
+        &copy; 2023 Movie Reviews
+      </footer>
+    </div>
+  );
+}
+
