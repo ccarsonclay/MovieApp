@@ -31,3 +31,26 @@ h1, h2, h3 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
+.movie-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.movie-card h3 {
+  margin-bottom: 10px;
+}
+
+.movie-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+#add-review-form {
+  margin-top: 20px;
+}
+
+#add-review-form label {
+  display: block;
+  margin-top: 10px;
+}
