@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="app">
       <header>
-        <h1>MovieBox</h1>
+        <h1>MovieBoxxd</h1>
       </header>
       <main>
         {/* Display movie list */}
@@ -81,3 +81,4 @@ function App() {
   );
 }
 
+export default App;
