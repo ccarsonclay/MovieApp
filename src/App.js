@@ -114,7 +114,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Movie Review App</h1>
+      <h1>MovieBoxxd</h1>
 
       {!isLoggedIn ? (
         <form onSubmit={handleLogin}>
