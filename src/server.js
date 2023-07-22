@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port = 3001;
+const port = 3002;
 
 // MongoDB configuration
 const mongoUsername = 'carsonaclay';

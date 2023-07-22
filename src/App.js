@@ -124,6 +124,14 @@ function App() {
       score: score,
     };
 
+    const storedReviews = JSON.parse(localStorage.getItem('reviews'));
+
+  if (storedReviews) {
+    localStorage.setItem('reviews', JSON.stringify([...storedReviews, newReview]));
+  } else {
+    localStorage.setItem('reviews', JSON.stringify([newReview]));
+  }
+
     setReviews([...reviews, newReview]);
     setReviewContent('');
     setScore('');
