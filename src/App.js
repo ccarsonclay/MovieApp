@@ -36,8 +36,16 @@ function App() {
     console.log('Password:', password);
   
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      setIsLoggedIn(true);
+      const response = await firebase.auth().signInWithEmailAndPassword(email, password);
+      if (response.user) {
+        // Set the login status in sessionStorage
+        sessionStorage.setItem('isLoggedIn', 'true');
+        setIsLoggedIn(true);
+        console.log('Login successful');
+      } else {
+        // Handle case when signInWithEmailAndPassword() returns null or undefined
+        console.log('Login unsuccessful');
+      }
     } catch (error) {
       console.error(error);
       // Handle error, display an error message, or redirect to an error page
