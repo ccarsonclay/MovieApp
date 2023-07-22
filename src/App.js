@@ -87,17 +87,13 @@ function App() {
   };
 
   useEffect(() => {
-    // Listen for authentication state changes
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      setIsLoggedIn(!!user); // Convert user object to boolean
-    });
-
-    // Clean up the listener
-    return () => {
-      unsubscribe();
-    };
+    // Check if the user is already logged in
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      setLoggedIn(true);
+    }
   }, []);
-
+  
   const handleReviewSubmit = (e, movieId, reviewContent) => {
     e.preventDefault();
 
