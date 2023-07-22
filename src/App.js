@@ -52,6 +52,19 @@ function App() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await firebase.auth().signOut();
+      // Remove the login status from sessionStorage
+      sessionStorage.removeItem('isLoggedIn');
+      setIsLoggedIn(false);
+      console.log('Logout successful');
+    } catch (error) {
+      console.error(error);
+      // Handle error, display an error message, or redirect to an error page
+    }
+  };
+
   const handleSearch = async (e) => {
     e.preventDefault();
 
