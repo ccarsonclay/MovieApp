@@ -108,10 +108,14 @@ function App() {
   };
 
   useEffect(() => {
-    // Check if the user is already logged in
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     if (isLoggedIn === 'true') {
-      setLoggedIn(true);
+      setIsLoggedIn(true);
+    }
+  
+    const storedReviews = JSON.parse(localStorage.getItem('reviews'));
+    if (storedReviews) {
+      setReviews(storedReviews);
     }
   }, []);
   
